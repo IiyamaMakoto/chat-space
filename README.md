@@ -74,4 +74,3 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :group
-ß

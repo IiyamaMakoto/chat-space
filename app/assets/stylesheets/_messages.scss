@@ -1,0 +1,57 @@
+.menu {
+  float: left;
+  width: 300px;
+  height: 100vh;
+  background-color: #2f3e51;
+  &__user {
+    background-color: #253141;
+    @include menu-text(16px);
+    @include link-colors(#ffffff);
+    padding: 35px 20px 20px 20px;
+    &--name {
+      text-align: left;
+    &--edit {
+      text-align: right;
+    }
+    }
+  }
+  &__group {
+    background-color: #2f3e51;
+    padding: 20px;
+    &--name {
+      @include menu-text(15px);
+      margin-bottom: 5px;
+    }
+    &--message {
+      @include menu-text(11px);
+    }
+  }
+}
+.messages {
+  &__group {
+    float: right;
+    width: calc(100vw - 380px);
+    background-color: #fafafa;
+    padding: 40px;
+    border-bottom: solid 1px #eeeeee;
+    &--left {
+      float: left;
+    }
+    &--name {
+      font-size: 20px;
+      color: #333333;
+      margin-top: 35px;
+    }
+    &--members {
+      font-size: 12px;
+      color: #999999;
+      margin-top:15px;
+    }
+    &--edit {
+      float: right;
+      height: 40px;
+      line-height: 40px;
+      margin: 28px 20px 28px;
+    }
+  }
+}

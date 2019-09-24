@@ -1,0 +1,12 @@
+$blue: #38AEF0;
+
+@mixin link-colors($color) {
+  color: $color;
+  text-decoration: none;
+}
+
+@mixin menu-text($font-size) {
+  font-size: $font-size;
+  color: #ffffff;
+  font-weight: bold;
+}

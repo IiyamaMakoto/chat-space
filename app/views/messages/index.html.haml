@@ -1,22 +1,25 @@
-.announce グルーブを作成しました
+.announce
+  .announce__text グループを作成しました
 .menu
   .menu__user
     .menu__user--name user
     .menu__user--edit
-    =link_to "/" do
-      =fa_icon 'edit'
-    =link_to "/" do
-      =fa_icon 'gear'
+      =link_to "/" do
+        =fa_icon 'edit'
+      =link_to "/" do
+        =fa_icon 'gear'
   .menu__group
-    .menu__group--name
-      sample
-    .menu__group--message
-      Good bye world
+    =link_to '/' do
+      .menu__group--name
+        sample
+      .menu__group--message
+        Good bye world
   .menu__group
-    .menu__group--name
-      sample-group
-    .menu__group--message
-      まだメッセージがありません
+    =link_to '/' do
+      .menu__group--name
+        sample-group
+      .menu__group--message
+        まだメッセージがありません
 .messages
   .messages__group
     .messages__group--left
@@ -24,19 +27,29 @@
         sample
       .messages__group--members
         Members: seo neko
-    .messages__group--edit
-      edit
+    =link_to '/' do
+      .messages__group--edit
+        Edit
   .messages__message
     .messages__message--user
       user
-      .messages__message--text
-        Hello world!
+      .messages__message--time
+        2019/09/25(Wed) 18:00:00
+    .messages__message--text
+      Hello world!
     .messages__message--user
       neko
-      .messages__message--text
-        Good bye world!
+      .messages__message--time
+        2019/09/25(Wed) 18:05:00
+    .messages__message--text
+      Good bye world!
   .messages__post
-    type a message
-    =fa_icon 'image'
-    send
+    .messages__post--textbox
+      type a message
+      .messages__post--image
+        =link_to '/' do
+          =fa_icon 'image'
+    =link_to '/' do
+      .messages__post--send
+        Send
     

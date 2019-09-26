@@ -43,13 +43,10 @@
         2019/09/25(Wed) 18:05:00
     .messages__message--text
       Good bye world!
-  .messages__post
-    .messages__post--textbox
-      type a message
-      .messages__post--image
-        =link_to '/' do
-          =fa_icon 'image'
-    =link_to '/' do
-      .messages__post--send
-        Send
-    
+  = form_for("new-message", html: {class: 'messages__post'}) do |f|
+    .input-box
+      %input.messages__post--textbox{type: "text", placeholder: "type a message"}
+      %label.messages__post--image{for: "upload-icon"}
+        %i.fa.fa-picture-o
+        = f.file_field :image, id: "upload-icon"
+    %input.messages__post--send{type: "submit", value: "Send"}

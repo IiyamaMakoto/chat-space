@@ -71,10 +71,11 @@ a{
       float: right;
       height: 40px;
       line-height: 40px;
-      margin: 28px 0;
+      margin: 30px 0;
       padding: 0 20px;
       border: solid 1px $blue;
       color: $blue;
+      box-sizing: border-box;
     }
   }
   &__message {
@@ -102,37 +103,44 @@ a{
     }
   }
   &__post {
-    @include clearfix;
+    display: flex;
     height: 50px;
     padding: 20px 40px;
     background-color: #dddddd;
+    .input-box {
+      position: relative;
+      width: 100%;
+    }
     &--textbox {
-      float: left;
       height: 50px;
-      width: calc(100vw - 505px);      
+      width:100%;
       background-color: #ffffff;
       font-size: 16px;
       color: #434A54;
-      line-height: 50px;
-      padding-left: 10px;
+      padding: 0 40px 0 10px;
+      border-style: none;
+      box-sizing: border-box;
     }
     &--image {
+      position: absolute;
+      top: 10px;
+      right: 10px;
       font-size: 21px;
-      float: right;
-      text-align: right;
-      padding-right: 10px;
+      cursor: pointer;
       a {color: black;}
     }
+    #upload-icon {
+      display: none;
+    }
     &--send {
-      float: right;
       height: 50px;
-      width: 60px;
-      line-height: 50px;
+      width: 100px;
       text-align: center;
       margin-left: 15px;
-      padding: 0 20px;
+      padding: 0 30px;
       background-color: $blue;
       display: block;
+      color: #ffffff;
     }
   }
 }

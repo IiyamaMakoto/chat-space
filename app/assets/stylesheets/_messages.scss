@@ -1,0 +1,147 @@
+a{
+  @include link-colors (#ffffff);
+}
+.announce {
+  background-color: $blue;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+}
+
+
+
+.menu {
+  float: left;
+  width: 300px;
+  height: 100vh;
+  background-color: #2f3e51;
+  &__user {
+    height: 45px;
+    @include clearfix;
+    background-color: #253141;
+    @include menu-text(16px);
+    padding: 35px 20px 20px 20px;
+    &--name {
+      float: left;
+      text-align: left;
+      display: block;
+    }
+    &--edit {
+      float: right;
+      text-align: right;
+      display: block;
+    }
+  }
+  &__group {
+    background-color: #2f3e51;
+    padding: 20px;
+    &--name {
+      font-size: 15px;
+      color: #ffffff;
+      margin-bottom: 5px;
+    }
+    &--message {
+      font-size: 11px;
+      color: #ffffff;
+    }
+  }
+}
+.messages {
+  float: right;
+  width: calc(100vw - 300px);
+  padding: 0;
+  &__group {
+    @include clearfix;
+    border-bottom: solid 1px #eeeeee;
+    padding: 0 40px;
+    &--left {
+      float: left;
+    }
+    &--name {
+      font-size: 20px;
+      color: #333333;
+      margin-top: 35px;
+    }
+    &--members {
+      font-size: 12px;
+      color: #999999;
+      margin-top:15px;
+    }
+    &--edit {
+      float: right;
+      height: 40px;
+      line-height: 40px;
+      margin: 30px 0;
+      padding: 0 20px;
+      border: solid 1px $blue;
+      color: $blue;
+      box-sizing: border-box;
+    }
+  }
+  &__message {
+    width: calc(100vw - 380px);
+    height: calc(100vh - 201px);
+    background-color: #fafafa;
+    padding: 6px 40px;
+    &--user {
+      font-size: 16px;
+      font-weight: bold;
+      color:#434A54;
+      margin-right: 10px;
+      margin-top: 40px;
+    }
+    &--time {
+      font-size: 12px;
+      color: #999999;
+      display: inline;
+      font-weight: normal;
+    }
+    &--text {
+      font-size: 14px;
+      color: #434A54;
+      margin-top:10px;
+    }
+  }
+  &__post {
+    display: flex;
+    height: 50px;
+    padding: 20px 40px;
+    background-color: #dddddd;
+    .input-box {
+      position: relative;
+      width: 100%;
+    }
+    &--textbox {
+      height: 50px;
+      width:100%;
+      background-color: #ffffff;
+      font-size: 16px;
+      color: #434A54;
+      padding: 0 40px 0 10px;
+      border-style: none;
+      box-sizing: border-box;
+    }
+    &--image {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 21px;
+      cursor: pointer;
+      a {color: black;}
+    }
+    #upload-icon {
+      display: none;
+    }
+    &--send {
+      height: 50px;
+      width: 100px;
+      text-align: center;
+      margin-left: 15px;
+      padding: 0 30px;
+      background-color: $blue;
+      display: block;
+      color: #ffffff;
+      cursor: pointer;
+    }
+  }
+}

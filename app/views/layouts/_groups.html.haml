@@ -7,15 +7,5 @@
         =fa_icon 'edit'
       =link_to edit_user_path(current_user) do
         =fa_icon 'gear'
+  = render @groups
   .menu__group
-    =link_to '/' do
-      .menu__group--name
-        sample
-      .menu__group--message
-        Good bye world
-  .menu__group
-    =link_to '/' do
-      .menu__group--name
-        sample-group
-      .menu__group--message
-        まだメッセージがありません

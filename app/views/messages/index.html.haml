@@ -3,29 +3,18 @@
   .messages__group
     .messages__group--left
       .messages__group--name
-        sample
+        = @group.name
       .messages__group--members
         Members: seo neko
-    .messages__group--edit
-      -# =link_to edit_group_path(params[:id]) do
+    =link_to edit_group_path(@group) do
+      .messages__group--edit
         Edit
   .messages__message
-    .messages__message--user
-      user
-      .messages__message--time
-        2019/09/25(Wed) 18:00:00
-    .messages__message--text
-      Hello world!
-    .messages__message--user
-      neko
-      .messages__message--time
-        2019/09/25(Wed) 18:05:00
-    .messages__message--text
-      Good bye world!
-  = form_for("new-message", html: {class: 'messages__post'}) do |f|
-    .input-box
-      %input.messages__post--textbox{type: "text", placeholder: "type a message"}
-      %label.messages__post--image{for: "upload-icon"}
-        %i.fa.fa-picture-o
-        = f.file_field :image, id: "upload-icon"
-    %input.messages__post--send{type: "submit", value: "Send"}
+    = render @messages
+  .messages__post
+    = form_for [@group, @message], html: {class: 'input-box'} do |f|
+      = f.text_field :message, class: 'messages__post--textbox', placeholder: "type a message"
+      = f.label :image, class: 'messages__post--image' do
+        = fa_icon 'image'
+        = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'messages__post--send'

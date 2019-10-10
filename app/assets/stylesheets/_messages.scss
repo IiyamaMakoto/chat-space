@@ -6,6 +6,7 @@ a{
   width: 100%;
   text-align: center;
   color: #ffffff;
+  position: fixed;
 }
 
 
@@ -83,6 +84,7 @@ a{
     height: calc(100vh - 201px);
     background-color: #fafafa;
     padding: 6px 40px;
+    overflow: auto;
     &--user {
       font-size: 16px;
       font-weight: bold;
@@ -101,19 +103,22 @@ a{
       color: #434A54;
       margin-top:10px;
     }
+    &--image {
+      height: 100px;
+    }
   }
   &__post {
     display: flex;
     height: 50px;
-    padding: 20px 40px;
+    padding: 20px 50px 20px 40px;
     background-color: #dddddd;
     .input-box {
-      position: relative;
       width: 100%;
     }
     &--textbox {
+      float: left;
       height: 50px;
-      width:100%;
+      width: calc(100% - 160px);
       background-color: #ffffff;
       font-size: 16px;
       color: #434A54;
@@ -122,20 +127,20 @@ a{
       box-sizing: border-box;
     }
     &--image {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 21px;
+      height: 50px;
+      padding: 15px 10px;
+      background-color: #fff;
+      line-height: 50px;
+      font-size: 20px;
       cursor: pointer;
       a {color: black;}
     }
-    #upload-icon {
+    .hidden {
       display: none;
     }
     &--send {
+      float: right;
       height: 50px;
-      width: 100px;
-      text-align: center;
       margin-left: 15px;
       padding: 0 30px;
       background-color: $blue;
@@ -144,4 +149,9 @@ a{
       cursor: pointer;
     }
   }
+}
+
+.image-size {
+  height: 100px;
+  width: auto;
 }

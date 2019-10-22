@@ -8,36 +8,27 @@ $(function() {
 
   function buildHTML(message){
     if (message.image.url == null) {
-      var html = `<div class="messages__message--box last_message">
-                    <div class="messages__message--user">
-                      ${message.user.name}
-                      <div class="messages__message--time">
-                        ${message.created_at}
-                      </div>
-                    </div>
-                    <div class="messages__message--text">
-                      ${message.message}
-                    </div>
-                  </div>`
+      var image_html = ``
     }
     else {
-      var html = `<div class="messages__message--box last_message">
-                    <div class="messages__message--user">
-                      ${message.user.name}
-                      <div class="messages__message--time">
-                        ${message.created_at}
-                      </div>
-                    </div>
-                    <div class="messages__message--text">
-                      ${message.message}
-                    </div>
-                    <div class="messages__message--image">
-                      <img src="${message.image.url}" class="image-size">
-                    </div>
-                  </div>`
+      var image_html = `<div class="messages__message--image">
+      <img src="${message.image.url}" class="image-size">
+    </div>`
     }
+    var html = `<div class="messages__message--box last_message">
+                  <div class="messages__message--user">
+                    ${message.user.name}
+                    <div class="messages__message--time">
+                      ${message.created_at}
+                    </div>
+                  </div>
+                  <div class="messages__message--text">
+                    ${message.message}
+                  </div>
+                  ${image_html}
+                </div>`
     return html;
- }
+  }
   
   $('.input-box').on('submit', function(e){
     e.preventDefault();

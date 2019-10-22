@@ -13,6 +13,7 @@
         Edit
   .messages__message
     = render @messages
+    .last_message
   .messages__post
     = form_for [@group, @message], html: {class: 'input-box'} do |f|
       = f.text_field :message, class: 'messages__post--textbox', placeholder: "type a message"

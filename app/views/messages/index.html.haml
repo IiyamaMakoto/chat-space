@@ -5,12 +5,15 @@
       .messages__group--name
         = @group.name
       .messages__group--members
-        Members: seo neko
+        Members: 
+        - @group.users.each do |user|
+          = user.name
     =link_to edit_group_path(@group) do
       .messages__group--edit
         Edit
   .messages__message
     = render @messages
+    .last_message
   .messages__post
     = form_for [@group, @message], html: {class: 'input-box'} do |f|
       = f.text_field :message, class: 'messages__post--textbox', placeholder: "type a message"

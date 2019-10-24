@@ -4,8 +4,6 @@ $(function() {
     $('.messages__message').animate({
       scrollTop:$('.last_message').offset().top});  
   }
-  scrollLast();
-
   function buildHTML(message){
     if (message.image.url == null) {
       var image_html = ``

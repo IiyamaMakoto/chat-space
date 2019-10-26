@@ -4,11 +4,11 @@ $(function() {
   function scrollLast(){
     $('.messages__message').animate({
       scrollTop:$('.messages__message--box').last().offset().top});  
-  }
+    }
   scrollLast();
 
   function buildHTML(message){
-    if (message.image.url) {
+    if (message.image.url !== null ) {
       var image_html = `<div class="messages__message--image">
       <img src="${message.image.url}" class="image-size">
     </div>`
@@ -18,7 +18,7 @@ $(function() {
     }
     var html = `<div class="messages__message--box" data-id='${message.id}'>
                   <div class="messages__message--user">
-                    ${message.user.name}
+                    ${message.user_name}
                     <div class="messages__message--time">
                       ${message.created_at}
                     </div>
@@ -67,12 +67,13 @@ $(function() {
     .done(function(messages) {
       var insertHTML = '';
       $.each(messages, function(i, message) {
-        insertHTML += buildHTML(message.image);
+        insertHTML += buildHTML(message);
       });
-      // $(".messages__message--box").animate({
-      //   scrollTop:500px;
-      // });
-  })
+      $('.messages__message').append(insertHTML);
+      if (messages.length !== 0){
+        scrollLast();
+      }
+    })
     .fail(function() {
       console.log('error');
     })

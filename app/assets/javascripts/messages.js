@@ -1,21 +1,24 @@
 $(function() {
 
+  last_message_id = $(".messages__message--box").last().data("id");
   function scrollLast(){
     $('.messages__message').animate({
-      scrollTop:$('.last_message').offset().top});  
-  }
-  function buildHTML(message){
-    if (message.image.url == null) {
-      var image_html = ``
+      scrollTop:$('.messages__message--box').last().offset().top});  
     }
-    else {
+  scrollLast();
+
+  function buildHTML(message){
+    if (message.image.url !== null ) {
       var image_html = `<div class="messages__message--image">
       <img src="${message.image.url}" class="image-size">
     </div>`
     }
-    var html = `<div class="messages__message--box last_message">
+    else {
+      var image_html = ``
+    }
+    var html = `<div class="messages__message--box" data-id='${message.id}'>
                   <div class="messages__message--user">
-                    ${message.user.name}
+                    ${message.user_name}
                     <div class="messages__message--time">
                       ${message.created_at}
                     </div>
@@ -41,7 +44,6 @@ $(function() {
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.last_message').removeClass("last_message");
       $('.messages__message').append(html);
       $('.messages__post--textbox').val('');
       $("input[type='file']").val(null);
@@ -53,4 +55,28 @@ $(function() {
       $('.messages__post--send').prop('disabled', false);
     })
   });
+
+  var reloadMessages = function() {
+    last_message_id = $(".messages__message--box").last().data("id");
+    $.ajax({
+      url: 'api/messages',
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+      $.each(messages, function(i, message) {
+        insertHTML += buildHTML(message);
+      });
+      $('.messages__message').append(insertHTML);
+      if (messages.length !== 0){
+        scrollLast();
+      }
+    })
+    .fail(function() {
+      alert('error');
+    })
+  }
+  setInterval(reloadMessages, 5000);
 })

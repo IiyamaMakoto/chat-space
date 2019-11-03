@@ -5,7 +5,9 @@ $(function() {
     $('.messages__message').animate({
       scrollTop:$('.messages__message--box').last().offset().top});  
     }
-  scrollLast();
+    if ('.messages__message' == null ) {
+      scrollLast();
+    }
 
   function buildHTML(message){
     if (message.image.url !== null ) {
@@ -78,5 +80,7 @@ $(function() {
       alert('error');
     })
   }
-  setInterval(reloadMessages, 5000);
+  if ('.messages__message' == null ) {
+    setInterval(reloadMessages, 5000);
+  }
 })
